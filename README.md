@@ -50,3 +50,33 @@
    Connect to Postgres with this setting
 
    ![](https://i.imgur.com/jgHY7h3.png)
+
+1. Install
+   [`golang-migrate/migrate`](https://github.com/golang-migrate/migrate).
+
+   ```bash
+   # Install migrate.
+   brew install golang-migrate
+
+   # Check the installed migrate command.
+   migrate --version
+
+   # Create the db migration directory.
+   mkdir -p db/migration
+
+   # Create the first migration script.
+   migrate create -ext sql -dir db/migration -seq init_schema
+   ```
+
+   Now, create a [Makefile](./Makefile) to save time and run the following:
+
+   ```bash
+   # Run a postgres container.
+   make postgres
+
+   # Create a db called "simple_bank" in this tutorial.
+   make createdb
+
+   # Migrate to create tables in the db.
+   make migrateup
+   ```
