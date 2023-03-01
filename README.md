@@ -109,3 +109,14 @@
    # Eliminate red lines inside `db/sqlc/account.sql`.
    go mod init github.com/v3ce/go-backend-boilerplate
    ```
+
+1. To write unit tests, we need to connect to the DB driver and import it in
+   [main_test.go](./db/sqlc/main_test.go).
+
+   ```bash
+   # Get required driver.
+   go get github.com/lib/pq
+
+   # Remove "indirect" of lib/pq.
+   go mod tidy
+   ```
