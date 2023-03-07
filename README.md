@@ -120,3 +120,16 @@
    # Remove "indirect" of lib/pq.
    go mod tidy
    ```
+
+1. Install [GoMock](https://github.com/golang/mock).
+
+   ```bash
+   # Install mockgen.
+   go install github.com/golang/mock/mockgen@v1.6.0
+
+   # Export the Go path.
+   # Add "export PATH=$PATH:~/go/bin" in your .zshrc or .bashrc
+
+   # Check the installed mockgen.
+   which mockgen
+   ```
