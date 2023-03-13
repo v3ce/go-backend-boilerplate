@@ -20,6 +20,8 @@ import (
 	"github.com/v3ce/go-backend-boilerplate/util"
 )
 
+const unauthorizedUsername = "unauthorized_username"
+
 type eqCreateUserParamsMatcher struct {
 	arg      db.CreateUserParams
 	password string
