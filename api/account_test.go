@@ -478,7 +478,7 @@ func TestUpdateAccountAPI(t *testing.T) {
 }
 
 func TestDeleteAccountAPI(t *testing.T) {
-	accoundID := int64(1)
+	accountID := int64(1)
 
 	testCases := []struct {
 		name          string
@@ -501,10 +501,10 @@ func TestDeleteAccountAPI(t *testing.T) {
 		},
 		{
 			name:      "NotFound",
-			accountID: accoundID,
+			accountID: accountID,
 			buildStubs: func(store *mockdb.MockStore) {
 				store.EXPECT().
-					DeleteAccount(gomock.Any(), accoundID).
+					DeleteAccount(gomock.Any(), accountID).
 					Times(1).
 					Return(sql.ErrNoRows)
 			},
@@ -514,10 +514,10 @@ func TestDeleteAccountAPI(t *testing.T) {
 		},
 		{
 			name:      "InternalServerError",
-			accountID: accoundID,
+			accountID: accountID,
 			buildStubs: func(store *mockdb.MockStore) {
 				store.EXPECT().
-					DeleteAccount(gomock.Any(), accoundID).
+					DeleteAccount(gomock.Any(), accountID).
 					Times(1).
 					Return(sql.ErrConnDone)
 			},
@@ -527,10 +527,10 @@ func TestDeleteAccountAPI(t *testing.T) {
 		},
 		{
 			name:      "OK",
-			accountID: accoundID,
+			accountID: accountID,
 			buildStubs: func(store *mockdb.MockStore) {
 				store.EXPECT().
-					DeleteAccount(gomock.Any(), accoundID).
+					DeleteAccount(gomock.Any(), accountID).
 					Times(1).
 					Return(nil)
 			},
